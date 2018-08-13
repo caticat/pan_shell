@@ -10,16 +10,22 @@ commands["2"]="dir"
 # 常量配置
 version="0.0.1"
 
+# 通用函数
+showVersion()
+{
+	echo "Pan's shell script, version[$version]"
+}
+
 # 参数校验
 if [ $# -eq 0 ]; then
-	echo "Pan's shell script, version[$version]"
+	showVersion
 	exit 0
 fi
 
 # 逻辑
 case "$1" in
-	haha)
-		echo 1
+	version)
+		showVersion
 		;;
 	*)
 		command=${commands[$1]}
