@@ -52,7 +52,8 @@ help()
 }
 
 # 参数校验
-if [ $# -eq 0 ]; then
+argsLen=$#
+if [ $argsLen -eq 0 ]; then
 	showVersion
 	exit 0
 fi
@@ -69,7 +70,13 @@ case "$1" in
 			exit 1
 		else
 			# echo $command
-			$command
+			if [ $argsLen -gt 1 ]; then
+				args=$*
+				args=${args#* }
+				$command $args
+			else
+				$command
+			fi
 		fi
 esac	
 
