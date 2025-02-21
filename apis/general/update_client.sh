@@ -8,7 +8,7 @@ ext_paths=(
     "config"
     "config/AutoGen"
     "Resource"
-    "ccbbaa"
+    "ccaabb"
 )
 
 update()

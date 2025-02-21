@@ -2,6 +2,8 @@
 
 # 服务器启停
 
+source "$path_libs/prsync.sh"
+
 # regist ***********************************************************************
 
 declare -A cmds=(); cmds_order=();
@@ -9,27 +11,23 @@ regist_cmd() { if [ "$#" -ne 3 ]; then echo "regist cmd failed: $*"; echo "use:"
 
 # constants ********************************************************************
 
-base_path="/data/bbccaa/aabbcc/Build/Debug/bin"
-server_name="bbccaa"
-
 # commands *********************************************************************
 
 # command, function, description
-regist_cmd "start" "start_server" "sh start $server_name"
-regist_cmd "stop" "stop_server" "sh stop $server_name"
+regist_cmd "simple" "test_simple" "test simple"
+regist_cmd "rsync" "test_rsync" "test rsync"
 
 # commands functions ***********************************************************
 
-start_server() {
-	cd $base_path
-	sh start $server_name
-	cd -
+test_simple() {
+	path="`dirname $0`"
+	sh "$path/simple_test.sh"
 }
 
-stop_server() {
-	cd $base_path
-	sh stop $server_name
-	cd -
+test_rsync() {
+	echo "empty test"
+	# pupload "/p/tmp/a" "/home/abc/tmp/tmp" "abc@192.168.1.100" 22
+	# pdownload "/home/abc/tmp/tmp" "/p/tmp/c" "abc@192.168.1.100" 22
 }
 
 # base functions ***************************************************************

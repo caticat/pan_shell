@@ -7,11 +7,11 @@ source "$path_libs/confirm.sh"
 base_path="/p/workspace"
 
 ext_paths=(
-    "bbccaa"
-    "ccbbaa"
+    "aabbcc"
+    "ccaabb"
 )
 
-branch=${1:-"develop_aabbcc"}
+branch=${1:-"develop_bbccaa"}
 
 switch_branch()
 {
